@@ -20,26 +20,25 @@ LinkedList create_linked_list()
 
 void add_element(int value, LinkedList *list) 
 {
-    if (list->head) {
-        Node *element = (Node*) malloc(sizeof(Node));
-        element->value = value;
-        element->next = NULL;
+    Node *element = (Node*) malloc(sizeof(Node));
+    element->value = value;
+    element->next = NULL;
+
+    if (!list->head) {
         list->head = element;
         list->previous = element;
         return;
     }
 
-    Node *element = (Node*) malloc(sizeof(Node));
-    element->value = value;
-    element->next = NULL;
     list->previous->next = element;
     list->previous = element;
 }
 
-void show_all_elements(LinkedList *list) {
+void show_all_elements(LinkedList *list) 
+{
     Node *element = list->head;
 
-    while(element->next) {
+    while (element) {
         printf("%i\n", element->value);
         element = element->next;
     }

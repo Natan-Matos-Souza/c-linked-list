@@ -7,7 +7,7 @@ int main() {
     add_element(10, &linked_list);
     add_element(20, &linked_list);
 
-    printf("%i\n", linked_list.head->next->value);
+    show_all_elements(&linked_list);
 
     return 0;
 }
