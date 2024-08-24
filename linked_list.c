@@ -43,3 +43,14 @@ void show_all_elements(LinkedList *list)
         element = element->next;
     }
 }
+
+int get_element(int index, LinkedList *list)
+{
+    Node *element = list->head;
+
+    for (int i = 0; i < index; i++) {
+        element = element->next;
+    }
+
+    return element->value;
+}
