@@ -54,3 +54,25 @@ int get_element(int index, LinkedList *list)
 
     return element->value;
 }
+
+void remove_element(int index, LinkedList *list)
+{
+    Node *element = list->head;
+    Node *previous_element = NULL;
+    Node *next_element = NULL;
+
+    for (int i = 0; i < index; i++) {
+        previous_element = element;
+        element = element->next;
+    }
+
+    if (element == list->head) {
+        list->head = element->next;
+        free(element);
+        return;       
+    }
+
+    next_element = element->next;
+    previous_element->next = next_element;
+    free(element);
+}
